@@ -22,7 +22,7 @@ This website serves as a digital extension of my resume and a platform to share 
 
 ## 📸 Preview
 
-![Portfolio Preview](images/portfolio_snap.png)
+![Portfolio Preview](public_images/portfolio_snap.png)
 
 ## 🔗 Live Site
 
