@@ -137,7 +137,7 @@
       // Fetch and display projects
       const projectsContainer = document.getElementById("projects-container");
 
-      fetch("/api/projects") // Fetch data from our Node.js API endpoint
+      fetch("./data/projects.json") // Fetch data from our Node.js API endpoint
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
