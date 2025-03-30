@@ -1,0 +1,28 @@
+
+[
+    {
+      "id": 1,
+      "title": "QCOM",
+      "description": "QCOM is a python-based package that focuses on analyzing thermodynamic properties of quantum systems — particularly those involving neutral atom (Rydberg) platforms.",
+      "imageUrl": "/images/qcom_logo.png", 
+      "secondaryLinkUrl": "https://github.com/AviKaufman/QCOM",
+      "secondaryLinkText": "View Code"
+    },
+    {
+      "id": 2,
+      "title": "Improved entanglement entropy estimates from filtered bitstring probabilities",
+      "description": "My paper introducing a new method for estimating entanglement entropy experimentally, using a quantum computer.",
+      "imageUrl": "/images/paper_snap.png",
+      "liveUrl": null, 
+      "secondaryLinkUrl": "https://arxiv.org/pdf/2411.07092",
+      "secondaryLinkText": "Read Here"
+    },
+    {
+      "id": 3,
+      "title": "Avi-Kaufman.com",
+      "description": "The repo for my personal website, built with React and Next.js. It showcases my projects, skills, and experiences.",
+      "imageUrl": "/images/portfolio_snap.png",
+      "secondaryLinkUrl": "https://github.com/AviKaufman/My-Portfolio",
+      "secondaryLinkText": "View Code"
+    }
+  ]

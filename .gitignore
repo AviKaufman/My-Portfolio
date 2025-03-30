@@ -1,0 +1,21 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables (if you add them later)
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build output (if you add a build step later)
+dist/
+build/
