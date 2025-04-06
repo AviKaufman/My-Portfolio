@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avi Kaumfan - Portfolio</title>
+    <title>Avi Kaufman - Portfolio</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,181 +11,413 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Example font -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
-    <header class="navbar">
-      <div class="container">
-        <a href="/" class="nav-brand">Avi Kaufman</a>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
+    <div id="background-icons-container"></div>
+    <div id="page-content">
+      <header class="navbar">
+        <div class="container">
+          <a href="/" class="nav-brand">Avi Kaufman</a>
+          <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </header>
 
-    <main>
-      <section id="hero" class="hero-section">
-        <div class="container hero-container">
-          <!-- Add a class for easier styling -->
-          <div class="hero-text">
-            <!-- Wrap text content -->
-            <h1>Hi, I'm Avi Kaufman</h1>
-            <p class="subtitle">
-              Researcher, Software Engineer, and Entreprenuer
+      <main>
+        <section id="hero" class="hero-section">
+          <div class="container hero-container">
+            <!-- Text content on the left -->
+            <!-- ADD "content-box" CLASS TO THIS DIV -->
+            <div class="hero-text content-box">
+              <h1>Hi, I'm Avi Kaufman</h1>
+              <p class="subtitle">
+                Researcher, Software Engineer, and Entreprenuer
+              </p>
+              <p>
+                Welcome to my portfolio. Here you can find some of the projects
+                I've worked on.
+              </p>
+              <!-- Optional: Link to Resume -->
+              <!-- <a href="/path/to/your/resume.pdf" target="_blank" class="btn btn-primary">View Resume</a> -->
+            </div>
+            <div class="hero-image-wrapper">
+              <!-- Wrapper for the image -->
+              <img
+                src="/images/profile-pic.png"
+                alt="Headshot of Avi Kaufman"
+                class="profile-image"
+              />
+              <!-- Make sure src path and alt text are correct! -->
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="about-section">
+          <div class="container">
+            <h2>About Me</h2>
+
+            <!-- ADD THIS OPENING DIV TAG -->
+            <div class="content-box">
+              <p>
+                Hi, I’m Avi Kaufman — a passionate problem solver with a
+                relentless curiosity and a drive to shape the future. I’m
+                graduating from the University of Iowa in May 2025 with a triple
+                major in Computer Science, Physics, and Mathematics.
+              </p>
+              <p>
+                My interests lie at the intersection of deep theory and
+                cutting-edge innovation, with a particular focus on quantum
+                computing. Whether I’m analyzing quantum systems, building
+                efficient algorithms, or diving into software development, I
+                thrive on tackling complex problems and pushing boundaries.
+              </p>
+              <p>
+                Outside of academics and research, I’ve explored entrepreneurial
+                ventures, where I bring creative ideas to life through tech. I
+                believe in solving tomorrow’s problems today, and I’m always
+                looking for new challenges that stretch my skills and expand my
+                understanding.
+              </p>
+              <p>
+                If you’re passionate about building the future, we’ll get along
+                just fine. 😃
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+          <div class="container">
+            <h2>Featured Work</h2>
+            <div class="projects-grid" id="projects-container">
+              <!-- Project cards will be loaded here by JavaScript -->
+              <p>Loading projects...</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="other-projects" class="other-projects-section">
+          <div class="container">
+            <h2>Other Projects</h2>
+            <div class="projects-grid" id="other-projects-container">
+              <!-- Other project cards will be loaded here by JavaScript -->
+              <p>Loading other projects...</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+          <div class="container">
+            <h2>Get In Touch</h2>
+            <p>
+              Feel free to reach out! You can contact me via email or connect on
+              LinkedIn.
             </p>
             <p>
-              Welcome to my portfolio. Here you can find some of the projects
-              I've worked on.
+              <a href="mailto:avigkaufman@gmail.com">avigkaufman@gmail.com</a> |
+              <a
+                href="https://www.linkedin.com/in/avi-kaufman-893434248/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+              |
+              <a
+                href="https://github.com/AviKaufman"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
             </p>
-            <!-- Optional: Link to Resume -->
-            <!-- <a href="/path/to/your/resume.pdf" target="_blank" class="btn btn-primary">View Resume</a> -->
+            <!-- Optional: Add a contact form later -->
           </div>
-          <div class="hero-image-wrapper">
-            <!-- Wrapper for the image -->
-            <img
-              src="/images/profile-pic.png"
-              alt="Headshot of Avi Kaufman"
-              class="profile-image"
-            />
-            <!-- Make sure src path and alt text are correct! -->
-          </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      <section id="about" class="about-section">
+      <footer class="footer">
         <div class="container">
-          <h2>About Me</h2>
-          <p>
-            Hi, I’m Avi Kaufman — a passionate problem solver with a relentless
-            curiosity and a drive to shape the future. I’m graduating from the
-            University of Iowa in May 2025 with a triple major in Computer
-            Science, Physics, and Mathematics.
-          </p>
-          <p>
-            My interests lie at the intersection of deep theory and cutting-edge
-            innovation, with a particular focus on quantum computing. Whether
-            I’m analyzing quantum systems, building efficient algorithms, or
-            diving into software development, I thrive on tackling complex
-            problems and pushing boundaries.
-          </p>
-          <p>
-            Outside of academics and research, I’ve explored entrepreneurial
-            ventures, where I bring creative ideas to life through tech. I
-            believe in solving tomorrow’s problems today, and I’m always looking
-            for new challenges that stretch my skills and expand my
-            understanding.
-          </p>
-          <p>
-            If you’re passionate about building the future, we’ll get along just
-            fine. 😃
-          </p>
-          <!-- Add more details, skills list, etc. if desired -->
+          <p>© <span id="year"></span> Avi Kaufman. All rights reserved.</p>
         </div>
-      </section>
-
-      <section id="projects" class="projects-section">
-        <div class="container">
-          <h2>Featured Work</h2>
-          <div class="projects-grid" id="projects-container">
-            <!-- Project cards will be loaded here by JavaScript -->
-            <p>Loading projects...</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-section">
-        <div class="container">
-          <h2>Get In Touch</h2>
-          <p>
-            Feel free to reach out! You can contact me via email or connect on
-            LinkedIn.
-          </p>
-          <p>
-            <a href="mailto:avigkaufman@gmail.com">avigkaufman@gmail.com</a> |
-            <a
-              href="https://www.linkedin.com/in/avi-kaufman-893434248/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn</a
-            >
-            |
-            <a
-              href="https://github.com/AviKaufman"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-          </p>
-          <!-- Optional: Add a contact form later -->
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p>© <span id="year"></span> Avi Kaufman. All rights reserved.</p>
-      </div>
-    </footer>
+      </footer>
+    </div>
 
     <!-- Simple script to load projects -->
     <script>
       // Set current year in footer
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Fetch and display projects
-      const projectsContainer = document.getElementById("projects-container");
+      // Get containers
+      const featuredProjectsContainer =
+        document.getElementById("projects-container");
+      const otherProjectsContainer = document.getElementById(
+        "other-projects-container"
+      );
 
-      fetch("./data/projects.json") // Fetch data from our Node.js API endpoint
+      // Function to create a project card HTML string
+      // Takes project data and a flag indicating if it's a featured card style
+      function createProjectCardHTML(project, isFeaturedCard) {
+        if (isFeaturedCard) {
+          // --- HTML for Featured Cards (current style) ---
+          return `
+                  <img src="${
+                    project.imageUrl || "/images/placeholder.png"
+                  }" alt="${project.title} screenshot" class="project-image">
+                  <div class="project-info">
+                      <h3>${project.title}</h3>
+                      <p>${project.description}</p>
+                      <div class="project-links">
+                          ${
+                            project.liveUrl
+                              ? `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Live Demo</a>`
+                              : ""
+                          }
+                          ${
+                            project.secondaryLinkUrl
+                              ? `<a href="${
+                                  project.secondaryLinkUrl
+                                }" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">${
+                                  project.secondaryLinkText || "More Info"
+                                }</a>`
+                              : ""
+                          }
+                          ${
+                            project.repoUrl
+                              ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Code</a>`
+                              : ""
+                          }
+                          ${
+                            !project.liveUrl &&
+                            !project.secondaryLinkUrl &&
+                            !project.repoUrl
+                              ? "<span>No links available</span>"
+                              : ""
+                          }
+                      </div>
+                  </div>
+              `;
+        } else {
+          // --- HTML for Other Cards (smaller style - no image, less info?) ---
+          // Adjust this structure as desired for the smaller cards
+          return `
+                  <div class="project-info">
+                      <h3>${project.title}</h3>
+                      <p>${project.description}</p>
+                      <div class="project-links">
+                          ${
+                            project.liveUrl
+                              ? `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer">Live</a>`
+                              : ""
+                          }
+                          ${
+                            project.secondaryLinkUrl
+                              ? `<a href="${
+                                  project.secondaryLinkUrl
+                                }" target="_blank" rel="noopener noreferrer">${
+                                  project.secondaryLinkText || "Info"
+                                }</a>`
+                              : ""
+                          }
+                          ${
+                            project.repoUrl
+                              ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer">Code</a>`
+                              : ""
+                          }
+                          ${
+                            !project.liveUrl &&
+                            !project.secondaryLinkUrl &&
+                            !project.repoUrl
+                              ? "<span></span>"
+                              : ""
+                          }
+                      </div>
+                  </div>
+              `;
+          // Note: Removed project-image. Added shorter link text.
+          // Buttons removed for simpler look, using plain links. Add 'btn btn-sm' if desired.
+        }
+      }
+
+      // Function to display projects in a specific container
+      function displayProjects(container, projects, isFeaturedStyle) {
+        container.innerHTML = ""; // Clear loading message
+        if (!projects || projects.length === 0) {
+          // Display nothing or a 'no projects' message if desired
+          // container.innerHTML = "<p>No projects here yet.</p>";
+          return; // Hide the section implicitly if empty
+        }
+
+        projects.forEach((project) => {
+          const card = document.createElement("div");
+          // Use 'project-card' for featured, 'other-project-card' for non-featured
+          card.className = isFeaturedStyle
+            ? "project-card"
+            : "other-project-card";
+          card.innerHTML = createProjectCardHTML(project, isFeaturedStyle);
+          container.appendChild(card);
+        });
+      }
+
+      // Fetch and process projects
+      fetch("/data/projects.json") // Use the absolute static path you configured
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           return response.json();
         })
-        .then((projects) => {
-          projectsContainer.innerHTML = ""; // Clear loading message
-          if (!projects || projects.length === 0) {
-            projectsContainer.innerHTML = "<p>No projects to display yet.</p>";
-            return;
+        .then((allProjects) => {
+          // Filter projects based on the 'featured' flag
+          const featuredProjects = allProjects.filter(
+            (p) => p.featured === true
+          );
+          const otherProjects = allProjects.filter((p) => p.featured === false);
+
+          // Display projects in their respective containers
+          displayProjects(featuredProjectsContainer, featuredProjects, true); // Use featured style
+          displayProjects(otherProjectsContainer, otherProjects, false); // Use other style
+
+          // Hide section titles if no projects are found for that section (Optional)
+          if (featuredProjects.length === 0) {
+            document.querySelector("#projects h2").style.display = "none";
           }
-
-          projects.forEach((project) => {
-            const card = document.createElement("div");
-            card.className = "project-card"; // Add class for styling
-
-            // Basic card structure - enhance with more details/styling
-            card.innerHTML = `
-                        <img src="${
-                          project.imageUrl || "/images/placeholder.png"
-                        }" alt="${
-              project.title
-            } screenshot" class="project-image">
-                        <div class="project-info">
-                            <h3>${project.title}</h3>
-                            <p>${project.description}</p>
-                            <div class="project-links">
-                                ${
-                                  project.secondaryLinkUrl
-                                    ? `<a href="${
-                                        project.secondaryLinkUrl
-                                      }" target="_blank" rel="noopener noreferrer">${
-                                        project.secondaryLinkText || "More Info"
-                                      }</a>`
-                                    : ""
-                                }
-                            </div>
-                        </div>
-                    `;
-            projectsContainer.appendChild(card);
-          });
+          if (otherProjects.length === 0) {
+            document.querySelector("#other-projects h2").style.display = "none";
+            // Optionally hide the entire section
+            // document.getElementById('other-projects').style.display = 'none';
+          }
         })
         .catch((error) => {
           console.error("Error fetching projects:", error);
-          projectsContainer.innerHTML =
+          featuredProjectsContainer.innerHTML =
             "<p>Sorry, could not load projects at this time.</p>";
+          otherProjectsContainer.innerHTML = ""; // Clear other projects loading too
+          // Hide section titles on error
+          document.querySelector("#projects h2").style.display = "none";
+          document.querySelector("#other-projects h2").style.display = "none";
         });
+    </script>
+    <script>
+      const profileImage = document.querySelector(".profile-image");
+
+      if (profileImage) {
+        profileImage.addEventListener("click", () => {
+          // 1. Check if already spinning to prevent glitches
+          if (profileImage.classList.contains("spinning")) {
+            return; // Do nothing if already spinning
+          }
+
+          // 2. Add the spinning class to trigger the animation
+          profileImage.classList.add("spinning");
+
+          // 3. Remove the class AFTER the animation finishes
+          // Use 'animationend' event listener
+          profileImage.addEventListener(
+            "animationend",
+            () => {
+              profileImage.classList.remove("spinning");
+            },
+            { once: true }
+          ); // { once: true } automatically removes the listener after it fires once
+        });
+      }
+    </script>
+    <script>
+      const iconContainer = document.getElementById(
+        "background-icons-container"
+      );
+      const icons = [
+        "\\(a^2 + b^2 = c^2\\)",
+        "\\(e^{i\\pi} + 1 = 0\\)",
+        "\\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+        "\\(A = \\pi r^2\\)",
+        "\\(e^x = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\cdots\\)",
+        "\\(F = ma\\)",
+        "\\(E = \\frac{1}{2}mv^2\\)",
+        "\\(E = mc^2\\)",
+        "\\(R_{\\mu\\nu} - \\frac{1}{2}Rg_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\frac{8\\pi G}{c^4}T_{\\mu\\nu}\\)",
+        "\\(i\\hbar \\frac{\\partial}{\\partial t}\\Psi = \\hat{H}\\Psi\\)",
+        "\\(E = h\\nu\\)",
+        "\\(\\nabla^2 \\psi - \\frac{1}{c^2} \\frac{\\partial^2 \\psi}{\\partial t^2} = 0\\)",
+        "\\(t' = \\gamma \\left( t - \\frac{vx}{c^2} \\right )\\)",
+        "\\(\\int_0^\\infty e^{-x^2} dx = \\frac{\\sqrt{\\pi}}{2}\\)",
+        "\\(\\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6}\\)",
+        "\\(\\oint_C \\vec{E} \\cdot d\\vec{l} = -\\frac{d\\Phi_B}{dt}\\)",
+        "\\(pV = nRT\\)",
+        "\\(\\Delta S \\geq 0\\)",
+        "\\(\\frac{d^2x}{dt^2} + \\omega^2x = 0\\)",
+      ];
+
+      // Fixed vertical positions for 7 segments (in percentages)
+      const fixedTops = [10, 25, 40, 55, 70, 85, 95];
+
+      // Function to spawn one equation in a given segment (vertical position)
+      function spawnEquation(segmentTop) {
+        const span = document.createElement("span");
+        span.classList.add("bg-icon");
+        // Randomly pick an equation
+        span.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+
+        // Place the equation in the fixed vertical segment
+        span.style.top = segmentTop + "%";
+
+        // Decide movement direction randomly:
+        // "ltr" = left-to-right, "rtl" = right-to-left.
+        const direction = Math.random() < 0.5 ? "ltr" : "rtl";
+        if (direction === "ltr") {
+          span.style.animationName = "drift-right";
+          // Spawn slightly off the left edge
+          span.style.left = -10 + "%";
+        } else {
+          span.style.animationName = "drift-left";
+          // Spawn slightly off the right edge
+          span.style.left = 100 + "%";
+        }
+
+        // Randomize font size (for example, between 1.5rem and 2.5rem)
+        const fontSize = 2.5 + Math.random() * (2.5 - 1.5);
+        span.style.fontSize = fontSize + "rem";
+
+        // Randomize animation duration (10s to 30s)
+        const duration = 10 + Math.random() * 10;
+        span.style.animationDuration = duration + "s";
+
+        // Set the animation to run only once
+        span.style.animationIterationCount = 1;
+
+        // Randomize animation delay
+        span.style.animationDelay = -60;
+
+        iconContainer.appendChild(span);
+
+        // Process the newly added equation with MathJax
+        MathJax.typesetPromise([span]).catch((err) =>
+          console.error("MathJax typeset failed: " + err.message)
+        );
+
+        // When the animation ends, remove the element and spawn a new one after a short gap
+        span.addEventListener("animationend", () => {
+          span.remove();
+          // Reduced time gap between animations (e.g., 1 second)
+          setTimeout(() => spawnEquation(segmentTop), 1000);
+        });
+      }
+
+      // Spawn one equation per segment, then each segment updates independently
+      fixedTops.forEach((topValue) => {
+        spawnEquation(topValue);
+      });
+    </script>
+    <script>
+      window.addEventListener("load", () => {
+        // Optionally add a slight delay for effect (e.g., 100ms)
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 100);
+      });
     </script>
   </body>
 </html>

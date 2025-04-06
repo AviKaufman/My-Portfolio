@@ -1,19 +1,32 @@
-/* public/css/style.css */
+/* ==========================================================================
+   Portfolio Stylesheet - Dark Theme
+   ========================================================================== */
 
-/* --- Color Palette Variables (Optional but recommended) --- */
+/* --- Variables --- */
 :root {
-    --bg-primary: #FFFFFF;       /* White */
-    --bg-secondary: #F8F9FA;     /* Very Light Gray */
-    --text-primary: #212529;     /* Near Black/Charcoal */
-    --text-secondary: #6C757D;   /* Medium Gray */
-    --accent-primary: #007BFF;   /* Vibrant Blue */
-    --accent-primary-darker: #0056b3; /* Darker blue for hover */
-    --bg-dark: #343A40;          /* Dark Gray/Charcoal */
-    --text-light: #F8F9FA;       /* Light Gray/Off-White */
-    --border-color: #dee2e6;      /* Light border gray */
+    --bg-primary: #1A1D24;
+    --bg-secondary: #252A34;
+    --card-bg: #252A34;
+    --header-bg: #252A34;
+    --footer-bg: #16181D;
+
+    --text-primary: #EAEAEA;
+    --text-secondary: #A0AEC0;
+
+    --accent-primary: #00CFB4;
+    --accent-primary-hover: #00A991;
+    --accent-rgb: 0, 207, 180; /* For rgba() glows */
+
+    --border-color: #3A4150;
+
+    --text-secondary-rgb: 160, 174, 192; /* RGB for #A0AEC0 */
+    --bg-icon-color: rgba(var(--text-secondary-rgb), 0.10); /* VERY subtle icon color */
+
+    --card-bg-rgb: 37, 42, 52; /* Add RGB for #252A34 */
+
 }
 
-/* --- Basic Reset & Defaults --- */
+/* --- Base Styles & Reset --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,23 +34,34 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary); /* use your page's background color */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--card-bg); /* a contrasting color from your theme */
+    border-radius: 10px;
+    border: 3px solid var(--bg-primary); /* creates a padding effect */
+  }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Modern font stack */
-    line-height: 1.7; /* Slightly increased line height */
+    font-family: 'Inter', 'SF Mono', 'Fira Code', 'Source Code Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, monospace;
+    line-height: 1.7;
     color: var(--text-primary);
-    background-color: var(--bg-secondary); /* Use secondary bg as default */
+    background-color: var(--bg-primary);
+    /* Optional: Subtle background gradient */
+    min-height: 100vh;
+    scrollbar-color: var(--card-bg) var(--bg-primary);
+    scrollbar-width: thin;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* --- Links --- */
 a {
    color: var(--accent-primary);
    text-decoration: none;
@@ -45,21 +69,89 @@ a {
 }
 
 a:hover {
-    color: var(--accent-primary-darker);
+    color: var(--accent-primary-hover);
     text-decoration: underline;
 }
 
+/* --- Add Background Icons Styles --- */
+#background-icons-container {
+    position: fixed; /* Keep fixed to viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Sit between body bg and #page-content */
+    pointer-events: none;
+}
 
-/* --- Header / Navbar --- */
+.bg-icon {
+    position: absolute;
+    color: var(--bg-icon-color);
+    font-size: 3rem; /* Base size, varied below */
+    user-select: none;
+    /* Use a NEW animation name */
+    animation: drift 20s infinite linear;
+    opacity: 0; /* Start hidden */
+    /* Add will-change for potentially smoother animation */
+    will-change: transform, opacity;
+}
+
+
+/* --- Keyframes for floating animation --- */
+@keyframes drift-left {
+    0% { transform: translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateX(-120vw); opacity: 0; }
+  }
+  @keyframes drift-right {
+    0% { transform: translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateX(120vw); opacity: 0; }
+  }
+
+
+/* --- Layout --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 20px;
+}
+
+/* --- Components --- */
+
+/* Navbar */
 .navbar {
-    background-color: var(--accent-primary); /* Blue background */
+    background-color: var(--header-bg);
     padding: 1rem 0;
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Consider removing or adjusting shadow for dark bg */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional: Darker shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* border-bottom: 1px solid var(--border-color); /* Remove or comment out light border */
+    border-bottom: 1px solid var(--border-color);
 }
 
 .navbar .container {
@@ -71,58 +163,240 @@ a:hover {
 .nav-brand {
     font-weight: bold;
     font-size: 1.5rem;
-    color: var(--text-light); /* White text for brand */
+    color: var(--text-primary);
     text-decoration: none;
 }
-
 .nav-brand:hover {
     text-decoration: none;
-    color: var(--text-light); /* Keep white on hover */
+    color: var(--accent-primary);
 }
 
-
 .navbar nav a {
-    color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for inactive links */
+    color: var(--text-secondary);
     text-decoration: none;
     margin-left: 1.75rem;
     font-weight: 500;
     transition: color 0.3s ease;
 }
-
 .navbar nav a:hover,
-.navbar nav a.active { /* You might add an 'active' class via JS later */
-    color: var(--text-light); /* Full white on hover/active */
+.navbar nav a.active {
+    color: var(--accent-primary);
     text-decoration: none;
 }
 
-
-/* --- Sections --- */
-section {
-    padding: 80px 0; /* More vertical padding */
+/* Content Box (Used in Hero & About) */
+.content-box {
+    background-color: rgba(var(--card-bg-rgb), 0.95); /* Use rgba with transparency */
+    padding: 30px 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        0 0 25px 0px rgba(var(--accent-rgb), 0.25);
+    color: var(--text-secondary);
 }
 
-section:nth-of-type(even) { /* Alternate background colors slightly */
-   background-color: var(--bg-primary);
+
+.content-box p {
+    color: var(--text-secondary);
+    margin-bottom: 1.2em;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
-section:nth-of-type(odd) {
-   background-color: var(--bg-secondary);
+.content-box p:last-of-type {
+    margin-bottom: 0;
 }
 
+.content-box a {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+.content-box a:hover {
+    color: var(--accent-primary-hover);
+}
 
-section h2 {
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 600;
     text-align: center;
-    margin-bottom: 50px; /* More space below heading */
-    font-size: 2.2rem; /* Slightly larger heading */
-    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border: 1px solid transparent;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.btn:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+.btn:active {
+    transform: translateY(0px);
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+    border-color: var(--accent-primary);
+}
+.btn-primary:hover {
+    background-color: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
+    color: var(--bg-primary);
+}
+
+/* Applies to project link buttons */
+.btn-secondary,
+.project-links a.btn { /* Be more specific if needed */
+    background-color: transparent;
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border-width: 1px;
+    border-style: solid;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.btn-secondary:hover,
+.project-links a.btn:hover {
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+    text-decoration: none;
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+.btn-secondary:active,
+.project-links a.btn:active {
+    transform: translateY(0px);
+}
+
+/* Featured Project Card */
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+}
+
+.project-card .project-image { /* Specificity */
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-card .project-info { /* Specificity */
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.project-card .project-info h3 { /* Specificity */
+    margin-bottom: 12px;
+    font-size: 1.4rem;
     color: var(--text-primary);
 }
+.project-card .project-info p { /* Specificity */
+    margin-bottom: 20px;
+    flex-grow: 1;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+.project-card .project-links { /* Specificity */
+    margin-top: auto;
+}
 
-/* --- Hero Section --- */
-/* Make Hero use the primary bg or keep distinct */
-#hero {
-    background-color: var(--bg-primary); /* White background for impact */
+/* Other Project Card */
+.other-project-card {
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+}
+.other-project-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-primary);
+}
+
+.other-project-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.other-project-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+.other-project-card .project-links {
+    margin-top: auto;
+    font-size: 0.85rem;
+}
+.other-project-card .project-links a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+.other-project-card .project-links a:last-child {
+    margin-right: 0;
+}
+.other-project-card .project-links a:hover {
+    color: var(--accent-primary-hover);
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--text-secondary);
     text-align: center;
-    padding: 80px 0; /* Even more padding */
+    padding: 30px 0;
+    margin-top: 0;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+.footer p {
+    margin: 0;
+}
+
+/* --- Sections --- */
+
+/* Hero Section */
+#hero {
+    background-color: transparent;
+    text-align: center;
+    padding: 80px 0;
+    border-bottom: none;
 }
 
 .hero-container {
@@ -133,291 +407,100 @@ section h2 {
     text-align: left;
 }
 
-.hero-text {
+.hero-text { /* Wrapper for text content */
     flex: 1;
-    max-width: 600px;
+    /* Max width is applied via content-box */
 }
 
 .hero-image-wrapper {
-    flex-shrink: 0; /* Prevent image wrapper from shrinking */
+    flex-shrink: 0;
+    perspective: 1500px;
+    transform: translateZ(0);
 }
 
 .profile-image {
-    display: block; /* Remove extra space below image */
-    width: 300px; /* Adjust width as desired */
-    height: 300px; /* Adjust height as desired */
-    border-radius: 50%; /* Makes the image circular - classic choice */
-    object-fit: cover; /* Ensures image covers the area without distortion */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    /* add a gray border */
-    border: 5px solid var(--bg-dark); /* Light gray border */
-    /* border: 3px solid var(--bg-color); Optional: white border */
-}
-
-
-.hero-section h1 {
-    font-size: 3rem; /* Larger hero heading */
-    margin-bottom: 10px;
-}
-
-.hero-section .subtitle {
-    font-size: 1.3rem;
-    color: var(--text-secondary); /* Use secondary text color */
-    margin-bottom: 25px;
-}
-
-.hero-section p:not(.subtitle) { /* Target the main paragraph */
-    font-size: 1.1rem;
-    max-width: none;
-    margin-bottom: 25px;
-}
-
-/* --- Responsive Adjustments for Hero --- */
-@media (max-width: 768px) {
-    .hero-container {
-        flex-direction: column; /* Stack text and image vertically */
-        text-align: center; /* Center text again on mobile */
-        gap: 30px; /* Adjust gap for vertical stacking */
-    }
-
-    .hero-text {
-       max-width: none; /* Allow text to take full width */
-       order: 2; /* Put text below image on mobile */
-    }
-
-    .hero-image-wrapper {
-        order: 1; /* Put image above text on mobile */
-        margin-bottom: 20px; /* Add some space below image */
-    }
-
-    .profile-image {
-        width: 200px; /* Make image slightly smaller on mobile */
-        height: 200px;
-        margin: 0 auto; /* Center the image */
-    }
-
-    /* Ensure headings/text are centered */
-    .hero-section h1,
-    .hero-section .subtitle,
-    .hero-section p:not(.subtitle) {
-       text-align: center;
-       /* Re-apply margin: auto if needed for paragraphs */
-       margin-left: auto;
-       margin-right: auto;
-       max-width: 500px; /* Optional max-width for text */
-    }
-     .hero-section p:not(.subtitle) {
-        max-width: 550px; /* Readjust if needed */
-     }
-
-}
-
-@media (max-width: 480px) {
-    .profile-image {
-        width: 160px;
-        height: 160px;
-    }
-     .hero-section h1 {
-        font-size: 2.2rem;
-     }
-      .hero-section .subtitle {
-        font-size: 1.1rem;
-     }
-
-}
-
-/* --- About Section --- */
-#about {
-    background-color: var(--accent-primary); /* Blue background */
-    color: var(--text-light); /* Default text color for the section (white) */
-}
-
-/* Ensure heading and paragraph text within #about is white */
-#about h2 {
-    color: var(--text-light); /* White heading */
-}
-
-/* Add these styles to public/css/style.css */
-
-/* --- Section Specific Styling: About Me --- */
-#about {
-    background-color: var(--accent-primary); /* Blue background */
-    color: var(--text-light); /* Default text color for the section (white) */
-}
-
-/* Ensure heading and paragraph text within #about is white */
-#about h2 {
-    color: var(--text-light); /* White heading */
-}
-
-#about p {
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 750px; /* Keep your max-width */
-    margin-left: auto;
-    margin-right: auto;
-    /* --- ADD THIS LINE --- */
-    margin-bottom: 1.2em; /* Adds space below each paragraph */
-    /* --- END ADD --- */
-}
-
-/* --- ADD THIS RULE --- */
-/* Remove margin from the last paragraph in the section */
-#about p:last-of-type {
-    margin-bottom: 0;
-}
-/* --- END ADD --- */
-
-#about a {
-    color: var(--text-light); /* White links */
-    font-weight: bold; /* Make them stand out */
-    text-decoration: underline;
-}
-
-#about a:hover {
-    color: rgba(255, 255, 255, 0.8); /* Slightly dimmer white on hover */
-}
-
-.about-section p {
-    max-width: 750px; /* Limit text width for readability */
-    margin: 0 auto; /* Center the paragraph */
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-primary); /* Ensure good contrast */
-}
-
-
-/* --- Projects Section --- */
-#projects {
-     /* Alternating color handled by nth-of-type */
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly larger min card width */
-    gap: 35px; /* Increased gap */
-    margin-top: 20px;
-}
-
-.project-card {
-    background-color: var(--bg-primary);
-    border-radius: 8px; /* Keep subtle rounding */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Slightly softer, larger shadow */
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border-color); /* Subtle border */
-}
-
-.project-card:hover {
-    transform: translateY(-6px); /* Slightly more lift */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
-}
-
-.project-image {
-    width: 100%;
-    height: 220px; /* Slightly taller images */
-    object-fit: cover;
     display: block;
-    border-bottom: 1px solid var(--border-color); /* Separate image slightly */
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    transform: rotateY(-18deg);
+    border: 1px solid var(--border-color);
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        0 0 20px 0px rgba(var(--accent-rgb), 0.2);
+    /* Transition only shadow by default, transform handled by animation */
+    transition: box-shadow 0.4s ease;
+}
+.profile-image:hover:not(.spinning) { /* Modify transform only when not spinning */
+    transform: rotateY(-5deg) scale(1.02);
+}
+.profile-image:hover { /* Apply shadow change always on hover */
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.25),
+        0 0 25px 0px rgba(var(--accent-rgb), 0.3);
 }
 
-.project-info {
-    padding: 25px; /* More padding */
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+/* Specific Hero Content Box adjustments */
+.hero-text.content-box {
+    max-width: 600px; /* Let flexbox determine more */
+    margin: 0; /* Override auto margin */
+    text-align: left; /* Ensure text is left-aligned */
+    transform: translateZ(0)
 }
 
-.project-info h3 {
-    margin-bottom: 12px;
-    font-size: 1.4rem; /* Larger project title */
+.hero-text.content-box h1 {
+    color: var(--text-primary);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.hero-text.content-box .subtitle {
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    text-align: left;
+}
+.hero-text.content-box p:not(.subtitle) {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+/* About Section */
+#about {
+    /* Base section padding/border applies */
+}
+#about h2 { /* Heading outside the box */
     color: var(--text-primary);
 }
-
-.project-info p {
-    margin-bottom: 20px; /* More space after description */
-    flex-grow: 1;
-    color: var(--text-secondary); /* Use secondary text for description */
-    font-size: 0.95rem; /* Slightly smaller desc text */
+#about .content-box { /* Use base content-box, centered by default */
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* Override default centered h2 */
 }
-
-.project-links {
-    margin-top: auto;
-}
-
-/* --- Buttons --- */
-.btn { /* Base button style */
-    display: inline-block;
-    padding: 10px 20px; /* Larger padding */
-    border-radius: 5px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    border: 1px solid transparent;
-    margin-right: 10px;
-    margin-bottom: 10px; /* Add space if buttons wrap */
-}
-.btn:hover {
-    text-decoration: none;
-}
-
-/* Primary Button Style (Example - could add this class to a main CTA) */
-.btn-primary {
-    background-color: var(--accent-primary);
-    color: var(--bg-primary); /* White text */
-    border-color: var(--accent-primary);
-}
-.btn-primary:hover {
-    background-color: var(--accent-primary-darker);
-    border-color: var(--accent-primary-darker);
-    color: var(--bg-primary);
-}
-
-/* Secondary Button Style (Used for project links) */
-.btn-secondary {
-    background-color: transparent; /* Ghost button style */
-    color: var(--text-secondary);
-    border-color: var(--border-color); /* Use light gray border */
-}
-
-.btn-secondary:hover {
-    background-color: var(--bg-secondary); /* Light gray fill on hover */
-    color: var(--text-primary); /* Darken text on hover */
-    border-color: var(--border-color);
-}
-
-/* Apply btn base style to project links for consistency */
-.project-links a {
-    display: inline-block;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    border: 1px solid var(--border-color);
-    margin-right: 10px;
-    margin-bottom: 10px; /* Add space if buttons wrap */
-    color: var(--text-secondary); /* Default state like secondary */
-    background-color: transparent;
-}
-.project-links a:hover {
-     background-color: var(--bg-secondary); /* Light gray fill on hover */
-    color: var(--text-primary); /* Darken text on hover */
-    text-decoration: none;
+#about .content-box p {
+    text-align: left; /* Ensure paragraphs are left-aligned */
 }
 
 
-/* --- Contact Section --- */
+/* Projects Sections */
+#projects {
+    /* Base section padding/border applies */
+}
+
+#other-projects {
+    /* Base section padding/border applies */
+}
+#other-projects .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Contact Section */
 #contact {
-     /* Alternating color handled by nth-of-type */
     text-align: center;
 }
 .contact-section p {
@@ -426,89 +509,149 @@ section h2 {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-}
-.contact-section p:last-of-type { /* More space below links */
-    margin-bottom: 0;
-}
-
-.contact-section a {
-    /* Uses default link styling (accent color) */
-    margin: 0 5px; /* Add a little horizontal space between links */
-}
-
-
-/* --- Footer --- */
-.footer {
-    background-color: var(--bg-dark); /* Use dark bg */
-    color: var(--text-light); /* Use light text */
-    text-align: center;
-    padding: 30px 0; /* More padding */
-    margin-top: 60px; /* More space above footer */
-    font-size: 0.9rem;
-}
-.footer p {
-    margin: 0;
-    color: var(--text-secondary); /* Use medium gray for copyright */
-}
-.footer span#year { /* Ensure year is same color */
     color: var(--text-secondary);
 }
+.contact-section p:last-of-type {
+    margin-bottom: 0;
+}
+.contact-section a {
+    margin: 0 8px;
+    font-weight: 600;
+}
 
+/* --- Animations --- */
+@keyframes spin-y-360 {
+  from { transform: rotateY(-18deg); } /* Match base state rotation */
+  to   { transform: rotateY(342deg); } /* Base state + 360 degrees */
+}
 
-/* --- Basic Responsive --- */
+/* Class added via JS to trigger spin */
+.profile-image.spinning {
+  animation: spin-y-360 0.7s ease-in-out;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
-    .navbar .container {
-        flex-direction: column;
-        align-items: center;
+
+    /* Optionally reduce number/size of icons */
+    .bg-icon {
+        font-size: 2rem; /* Smaller base size on mobile */
     }
-    .navbar nav {
-        margin-top: 15px;
+     /* Example: Maybe hide some icons on small screens */
+    /* .bg-icon:nth-child(n+7) { display: none; } */
+
+     /* Adjust individual sizes */
+    .bg-icon:nth-child(1) { font-size: 3rem; }
+    .bg-icon:nth-child(5) { font-size: 3.5rem; }
+    /* ... etc ... */
+
+    /* Layout */
+    section { padding: 60px 0; }
+    section h2 { font-size: 1.8rem; margin-bottom: 40px; }
+
+    /* Navbar */
+    .navbar .container { flex-direction: column; align-items: center; }
+    .navbar nav { margin-top: 15px; }
+    .navbar nav a { margin: 0 12px; }
+
+    /* Hero */
+    #hero { padding: 60px 0; }
+    .hero-container { flex-direction: column; gap: 30px; }
+    .hero-text { order: 2; } /* Text below image */
+    .hero-image-wrapper {
+        order: 1; /* Image above text */
+        perspective: 2000px;
+        margin: 0 auto 30px auto;
     }
-    .navbar nav a {
-        margin: 0 12px; /* Adjust spacing */
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        transform: rotateY(-12deg); /* Adjust base rotation */
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2), 0 0 15px 0px rgba(var(--accent-rgb), 0.2);
+        margin: 0 auto; /* Ensure centered */
+    }
+    /* Update keyframes if base rotation changes */
+    @keyframes spin-y-360-mobile-med {
+      from { transform: rotateY(-12deg); }
+      to   { transform: rotateY(348deg); }
+    }
+    .profile-image.spinning {
+        animation-name: spin-y-360-mobile-med; /* Use adjusted animation */
+    }
+    .hero-text.content-box {
+        width: 100%;
+        max-width: 550px;
+        margin: 0 auto;
+        text-align: center; /* Center text when stacked */
+        padding: 25px;
+    }
+    .hero-text.content-box h1 { font-size: 2.5rem; text-align: center; }
+    .hero-text.content-box .subtitle { font-size: 1.1rem; text-align: center; }
+    .hero-text.content-box p:not(.subtitle) { text-align: center; }
+
+    /* About */
+    #about .content-box {
+        padding: 25px 30px;
+        max-width: 95%;
     }
 
-    section {
-        padding: 50px 0; /* Reduce padding on smaller screens */
+    /* Project Grids */
+    .projects-grid { /* Affects both grids unless overridden */
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
-    section h2 {
-        font-size: 1.8rem; /* Reduce heading size */
-        margin-bottom: 30px;
+     #other-projects .projects-grid {
+        /* Keep 1 column or adjust */
+        /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
     }
+    .project-card .project-image { height: 200px; }
+    .project-card .project-info { padding: 20px; }
+    .project-card .project-info h3 { font-size: 1.2rem; }
 
-    .hero-section {
-        padding: 60px 0;
-    }
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-    .hero-section .subtitle {
-        font-size: 1.1rem;
-    }
+    /* Other Cards */
+    /* Base responsive grid handles stacking */
 
-    .projects-grid {
-        grid-template-columns: 1fr; /* Stack cards */
-        gap: 25px; /* Reduce gap */
-    }
-    .project-card {
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06); /* Slightly reduce shadow */
-    }
-     .project-image {
-        height: 200px; /* Maybe reduce image height */
-    }
-    .project-info {
-        padding: 20px; /* Reduce padding */
-    }
-     .project-info h3 {
-        font-size: 1.2rem;
-     }
+    /* Contact */
+    .contact-section p { font-size: 1rem; }
 
-     .contact-section p {
+    /* Footer */
+    .footer { padding: 25px 0; }
+}
+
+@media (max-width: 480px) {
+    /* Hero */
+    .profile-image {
+        width: 160px;
+        height: 160px;
+        transform: rotateY(-10deg); /* Further adjust base rotation */
+    }
+    /* Update keyframes if base rotation changes */
+    @keyframes spin-y-360-mobile-sml {
+      from { transform: rotateY(-10deg); }
+      to   { transform: rotateY(350deg); }
+    }
+    .profile-image.spinning {
+        animation-name: spin-y-360-mobile-sml; /* Use adjusted animation */
+    }
+    .hero-text.content-box h1 { font-size: 2.2rem; }
+    .hero-text.content-box .subtitle { font-size: 1.1rem; }
+    .hero-text.content-box { padding: 20px; }
+
+    /* About */
+    #about .content-box {
+        padding: 20px 20px;
+    }
+    #about .content-box p {
         font-size: 1rem;
-     }
+    }
 
-     .footer {
-         padding: 20px 0;
-         margin-top: 40px;
-     }
+     /* Other Project Grid */
+     #other-projects .projects-grid {
+        gap: 15px;
+    }
+    .other-project-card {
+        padding: 15px;
+    }
+    .other-project-card h3 { font-size: 1rem; }
+    .other-project-card p { font-size: 0.85rem; }
 }

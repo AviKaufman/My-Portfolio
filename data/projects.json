@@ -1,28 +1,54 @@
 
 [
-    {
-      "id": 1,
-      "title": "QCOM",
-      "description": "QCOM is a python-based package that focuses on analyzing thermodynamic properties of quantum systems — particularly those involving neutral atom (Rydberg) platforms.",
-      "imageUrl": "/images/qcom_logo.png", 
-      "secondaryLinkUrl": "https://github.com/AviKaufman/QCOM",
-      "secondaryLinkText": "View Code"
-    },
-    {
-      "id": 2,
-      "title": "Improved entanglement entropy estimates from filtered bitstring probabilities",
-      "description": "My paper introducing a new method for estimating entanglement entropy experimentally, using a quantum computer.",
-      "imageUrl": "/images/paper_snap.png",
-      "liveUrl": null, 
-      "secondaryLinkUrl": "https://arxiv.org/pdf/2411.07092",
-      "secondaryLinkText": "Read Here"
-    },
-    {
-      "id": 3,
-      "title": "Avi-Kaufman.com",
-      "description": "The repo for my personal website, built with React and Next.js. It showcases my projects, skills, and experiences.",
-      "imageUrl": "/images/portfolio_snap.png",
-      "secondaryLinkUrl": "https://github.com/AviKaufman/My-Portfolio",
-      "secondaryLinkText": "View Code"
-    }
-  ]
+  {
+    "id": 1,
+    "title": "QCOM",
+    "description": "QCOM is a python-based package that focuses on analyzing thermodynamic properties of quantum systems — particularly those involving neutral atom (Rydberg) platforms.",
+    "imageUrl": "/images/qcom_logo.png",
+    "secondaryLinkUrl": "https://github.com/AviKaufman/QCOM",
+    "secondaryLinkText": "View Code",
+    "featured": true  
+  },
+  {
+    "id": 2,
+    "title": "Improved entanglement entropy estimates...", 
+    "description": "My paper introducing a new method for estimating entanglement entropy experimentally, using a quantum computer.",
+    "imageUrl": "/images/paper_snap.png",
+    "liveUrl": null,
+    "secondaryLinkUrl": "https://arxiv.org/pdf/2411.07092",
+    "secondaryLinkText": "Read Here",
+    "featured": true 
+  },
+  {
+    "id": 3,
+    "title": "Avi-Kaufman.com (This Site!)", 
+    "description": "The portfolio site you're currently viewing. Built with Node.js, Express, and vanilla JS, focusing on a clean dark theme.",
+    "imageUrl": "/images/portfolio_snap.png",
+    "secondaryLinkUrl": "https://github.com/AviKaufman/My-Portfolio", 
+    "secondaryLinkText": "View Code",
+    "featured": true 
+  },
+  {
+    "id": 4,
+    "title": "MineSweeper",
+    "description": "One of the first projects I built. A simple minesweeper game built with only python and tkinter.",
+    "imageUrl": null, 
+    "liveUrl": null,
+    "repoUrl": "https://github.com/AviKaufman/minesweeper.py",
+    "secondaryLinkUrl": null,
+    "secondaryLinkText": null,
+    "featured": false 
+  },
+   {
+    "id": 5,
+    "title": "2048 Game",
+    "description": "Another project of mine from early on. It's a simple 2048 game built with only python and tkinter.",
+    "imageUrl": null,
+    "repoUrl": "https://github.com/AviKaufman/2048-Game",
+    "secondaryLinkUrl": null,
+    "secondaryLinkText": "View Code",
+    "featured": false 
+  }
+ 
+
+]
